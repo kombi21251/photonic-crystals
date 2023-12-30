@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Історія досліджень фотонних кристалів</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;400;800;900&family=IBM+Plex+Mono:wght@200;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+    <style>
+        body, html {
+            scroll-behavior: smooth;
+            margin: 0;
+            padding-top: 0px; /* Додатковий відступ для фіксованого заголовка */
+            height: 100%;
+font-family: 'Exo 2', sans-serif;
+
+
+        }
+
+        header {
+            width: 100%;
+            padding-top: 0px;
+                        
+            height: 100px;
+            display: flex;
+            text-align: center;
+            transition: background-color 0.3s;
+             
+
+                display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+
+        }
+
+
+        header ul {
+            list-style-type: none;
+           
+
+
+
+    display: inline-block;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 120px;
+    padding-inline-start: 0px;
+
+}
+
+header li {
+    list-style-type: none;
+   
+    display: inline;
+    margin-right: 40px;
+    margin-left: 40px; /* Збільшено відступ справа */
+}
+
+header a {
+    text-decoration: none;
+    color: #161616;
+    font-size: 16px;
+    position: relative; /* Для позиціонування псевдоелемента */
+}
+
+header a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #161616;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -10px; /* Відстань від тексту */
+}
+
+header a:hover::after {
+    width: 100%;
+}
+
+h1 {
+
+        margin-block-start: 0.25em;
+    margin-block-end: 0.25em;
+}
+h2 {
+
+        margin-block-start: 0.5em;
+    margin-block-end: 1em;
+    font-size: 48px;
+}
+p{
+
+        margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+
+}
+
+#logo-container {
+    display: inline-block;
+
+        justify-content: center; /* Центрування вмісту по вертикалі */
+    align-items: center;
+    margin-top: 0;
+    padding-left: 120px;
+ 
+
+
+}
+
+#logo {
+    padding-left: 120px;
+    display: inline-block;
+    height: 65px; /* Висота логотипу */
+}
+
+        .section {
+            min-height: 80vh;
+            padding: 0px;
+            background-color: #bc98cb;
+            text-align: center;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 100px;
+            padding-right: 100px;
+
+
+        }
+
+.text-content {
+    width: 50%;
+    min-height: 80vh;
+    padding: 0px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрування вмісту по вертикалі */
+
+}
+
+.chapter-video {
+    display: flex; /* Для центрування зображення */
+            justify-content: center; /* Горизонтальне центрування */
+            align-items: center; /* Вертикальне центрування */
+padding: 0;
+margin: 0;
+
+}
+
+video {
+padding: 0;
+margin: 0;
+
+}
+        .image-content {
+            width: 100%;
+            padding: 0;
+
+                        display: inline-block; /* Для центрування зображення */
+            justify-content: center; /* Горизонтальне центрування */
+            align-items: center; /* Вертикальне центрування */
+            text-align: center;
+        }
+        .image-content-image {
+            display: inline-block;
+            height: 400px;
+                        overflow: hidden; /* Приховує все, що виходить за межі контейнера */
+                            transition: transform 0.5s; /* Анімація масштабування */
+    box-shadow: 7px 7px black; /* Додавання тіні */
+
+        }
+
+        .image-content-image:hover {
+    transform: scale(1.1); /* Збільшення розміру кнопки при наведенні */
+
+}
+
+        img {
+            display: flex;
+            max-width: 100%; /* Максимальна ширина зображення 100% від контейнера */
+            max-height: 100%; /* Максимальна висота зображення 100% від контейнера */
+            object-fit: contain; /* Зображення вміщується в контейнер, зберігаючи пропорції */
+        }
+
+.header-text-content {
+    text-align: left; /* Центрування тексту всередині header-text-content */
+    padding-left: 5%;
+}
+
+        .text-content h2 {
+            font-size: 64px;
+            text-transform: uppercase;
+                font-family: 'Exo 2', sans-serif;
+    font-weight: 800;
+    marging: 0;
+    padding: 0;
+        }
+
+        .text-content p:last-child {
+            padding: 0;
+            marging: 0;
+        }
+
+
+
+        .button-neo {
+    background-color: #fdfd96; /* Світло-жовтий фон */
+    color: black; /* Чорний текст */
+    border: 2px solid black; /* Чорна межа */
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: transform 0.3s; /* Анімація масштабування */
+    box-shadow: 3px 3px black; /* Додавання тіні */
+}
+
+.button-neo:hover {
+    transform: scale(1.05); /* Збільшення розміру кнопки при наведенні */
+
+}
+
+#section3 {
+        background-color: #b9e2f8;
+
+}
+
+#section3 .button-neo {
+    background-color: #ffc5c8;
+}
+
+#section4 {
+        background-color: #b9e7de;
+
+}
+
+#section4 .button-neo {
+    background-color: #bc98cb;
+}
+
+
+        .main-section {
+            min-height: 80vh;
+            padding: 0px;
+            background-color: #f0f0f0;
+            text-align: center;
+
+
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #b9e2f8;
+                        background-image: url('../images/school-pattern.png');
+            background-repeat: repeat;
+            background-size: 1000px 1000px;
+        }
+
+.main-text-content {
+    width: 100%;
+    min-height: 100vh;
+    padding: 0px;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрування вмісту по вертикалі */
+    align-items: center;
+
+}
+
+.main-header-text-content {
+    align-items: center; /* Центрування тексту всередині header-text-content */
+
+    padding: 50px;
+    max-width: 60%;
+    background-color: #ffc5c8;
+    box-shadow: 10px 10px black;
+}
+
+        .main-text-content h1 {
+            font-size: 72px;
+            text-transform: uppercase;
+                font-family: 'Exo 2', sans-serif;
+                
+                text-align: center;
+    font-weight: 900;
+    marging: 0;
+    padding: 0;
+
+        }
+        .main-text-content p {
+            padding: 0;
+            marging: 0;
+            
+
+        }
+
+        .main-text-content p:last-child {
+            padding: 0;
+            marging: 0;
+            
+
+        }
+
+                .main-header-text-content .button-neo {
+    background-color: #40d39c; /* Світло-жовтий фон */
+    color: black; /* Чорний текст */
+    border: 2px solid black; /* Чорна межа */
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: transform 0.3s; /* Анімація масштабування */
+    box-shadow: 3px 3px black; /* Додавання тіні */
+}
+
+.photonic-content {
+                width: 400px;
+            height: 400px;
+}
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            height: 300px;
+            padding: 20px;
+            background-color: #ffc5c8; /* Світлий фон для футера */
+            border-top: 1px solid #dcdcdc; /* Розділова лінія на верху футера */
+                        padding-left: 100px;
+            padding-right: 100px;
+        }
+
+.footer-logo {
+    height: 120px;
+}
+
+.footer-text {
+
+}
+
+
+.footer-contact {
+}
+
+        .footer-contacts a {
+            color: #007bff; /* Синій колір для посилань */
+            text-decoration: none; /* Видалення підкреслення */
+        }
+
+        .footer-contacts a:hover {
+            color: #0056b3; /* Темніший синій колір при наведенні */
+            text-decoration: underline; /* Підкреслення при наведенні */
+        }
+
+        .footer-contacts a:active {
+            color: #004080; /* Ще темніший колір при натисканні */
+        }
+
+        .footer-contacts a:focus {
+            outline: none; /* Видалення контуру при фокусуванні */
+            box-shadow: 0 0 3px #007bff; /* Додавання синьої тіні навколо посилання при фокусуванні */
+        }
+        .chapter-section {
+
+
+
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 400;
+            
+            align-items: center;
+            background-color: #f0f0f0;
+            background-image: url('../images/school-pattern.png');
+            background-repeat: repeat;
+            background-size: 1000px 1000px;
+        }
+        .chapter-container {
+
+            max-width: 50%;
+            margin: 0px auto;
+            
+            padding: 20px;
+        }
+
+        .chapter-container h2 {
+            text-align: center;
+
+        }
+        .chapter-text h3 {
+            color: #d62828;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            font-size: 24px;
+
+        }
+        .chapter-text p {
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .chapter-text-box {
+            background-color: #f77f00;
+            color: #fff;
+            padding: 15px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 5px solid black;
+            font-family: 'IBM Plex Mono', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+        }
+        .chapter-content {
+            display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрування вмісту по вертикалі */
+    align-items: center;
+        }
+        .chapter-reference {
+            font-size: 14px;
+            font-style: italic;
+        }
+
+                .chapter-formula {
+            padding: 0;
+            margin: 0;
+            font-family: 'IBM Plex Mono', sans-serif;
+            font-weight: 400;
+            text-align: center;
+            align-items: center;
+
+        }
+
+                        .chapter-formula p {
+            background-color: #f77f00;
+            color: #fff;
+            padding: 5px;
+            margin: 10px;
+            border: 5px solid black;
+            font-family: 'IBM Plex Mono', sans-serif;
+            font-weight: 400;
+            text-align: center;
+            width: 300px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<header id="header">
+    <div id="logo-container">
+        <img src="../images/logo.png" alt="Логотип" id="logo">
+
+    </div>
+    <nav>
+    <ul>
+        <li><a href="../index.html">Головна</a></li>
+        <li><a href="../chapters/control-work.html">Контроль знань</a></li>
+        <li><a href="#footer">Контакти</a></li>
+    </ul>
+</nav>
+</header>
+    <section class="chapter-section">
+    <div class="chapter-container">
+        <h2>Фотонні кристали</h2>
+
+        <div class="chapter-text">
+            <h3>Що таке фотонні кристали?</h3>
+            <p>Фотонні кристали представляють собою структури, які характеризуються періодичною модуляцією діелектричної проникності (показника заломлення), що має період порівняний з довжиною електромагнітних хвиль. Характерною властивістю таких кристалів являється наявність дозволених та заборонених фотонних зон. Фотонна заборонена зона – область частот електромагнітного випромінювання, будь-якої поляризації, розповсюдження якого в будь-якому напрямку в фотонному кристалі являється неможливим.</p>
+<p>У 1991-му році Е. Яблонович вперше вводить поняття «структури з фотонною забороненою зоною». В його трактуванні, такі структури володіють властивістю «придушення» або «підсилення» спонтанного випромінювання.</p>
+</p>
+        </div>
+                    <div class="image-content">
+                <div class="image-content-image">
+                <img src="https://physicsworld.com/wp-content/uploads/2021/04/PC_210413_HD_2.jpg" alt="Опис зображення">
+            </div>
+            </div>
+        <div class="chapter-text">
+            <h3>Чому цю штучну періодичну структуру називають фотонним кристалом?</h3>
+            <p>Щоб зрозуміти це, ми спочатку розглянемо звичайний твердотільний кристал. У нормальних речовинах атоми розташовані періодично, утворюючи кристал, і електричні характеристики визначаються його періодичністю. Періодичний потенціал діє на наявні в кристалі електрони. Відомо, що електрони, що рухаються в періодичному потенціалі, поводяться інакше, ніж електрони у вільному просторі. У результаті в природі існують речовини, які мають різні електричні властивості, наприклад є провідниками, ізоляторами та напівпровідниками. Іншими словами, речовини з різними електричними властивостями в природі існують завдяки періодичності кристалів.</p>
+<p>Візьмемо електрон, який знаходиться всередині кристала і вільно рухається, як у металі чи напівпровіднику. Електрони, які мають довжину хвилі, яка «масштабується» з «довжиною хвилі» періодичного збурення, зазнають ефекту, який ми називаємо дифракцією, точно так само, як відповідне рентгенівське випромінювання.</p>
+<p>Рентгенівські хвилі – це також електромагнітні хвилі, як, наприклад, і видиме світло, але зі значно коротшими довжинами хвиль. При рентгенографічних методах дослідження використовують рентгенівські промені з довжинами хвиль від 0,2 Å до ~2,5 Å, тобто, приблизно, на чотири порядки коротші, чим довжини хвиль видимого діапазону спектру. В природі існують різноманітні кристали з відповідною структурою, і такі кристали мають заборонені зони для рентгенівських хвиль, але не кожен кристал можливо вважати «фотонним кристалом». Високий показник контрастності є основною особливістю фотонних структур за межами динамічної дифракції рентгенівських променів. Контраст показника заломлення для рентгенівських променів є крихітним. Малий індекс контрастності для рентгенівських променів призводить до динамічної дифракції, яка є по суті одновимірним випадком, навіть якщо самі кристали є тривимірними.</p><p>Таким чином, ми говоримо про 1D брегівські площини і 1D шари атомів, але не про 3D-кристали. 
+Така поведінка зумовлена квантово-механічної хвильовою природою електронів, тому такий самий ефект можна очікувати від світла з таким самим хвильовим рухом. Однак період природних кристалів становить близько 0,1 нм, що неймовірно мало в порівнянні з довжиною хвилі. Оскільки він на 3 цифри менший, світло не може відчути цю періодичність. У результаті всі звичайні речовини є світлопровідниками (або поглиначами), і немає «світлоізоляторів», які б ні поглинали світло, ні проводили його. Штучно створюючи періодичну структуру розміру, придатного для довжини хвилі світла (зазвичай приблизно від 200 до 400 нм), можна реалізувати метаматеріали з оптичними властивостями, які неможливі у звичайних матеріалів. Наприклад, можна створити «світловий ізолятор», який не пропускає світло. Ця чудова структура є фотонним кристалом.
+</p>
+        </div>
+
+
+
+        <div class="chapter-text-box">
+            <h3>Основні вимоги до визначення фотонних кристалів</h3>
+    <ul>
+        <li>Наявність періодичної модуляції діелектричної проникненості в масштабі, порівняним з довжиною хвиль електромагнітного випромінювання.</li>
+        <li>Це повинна бути 2D або 3D періодична структура, і в такій структурі модуляція діелектричної проникненості повинна виконуватись в усіх напрямках.</li>
+        <li>Наявність високого індексу діелектричного контрасту.</li>
+        <li>Наявність повної фотонної забороненої зони (контраст показника заломлення більше 2,9), або наявність забороненої зони в заданому напрямку (стоп-зона, при якій контраст показника заломлення менше 2,9, але більше 1,87).</li>
+    </ul>
+        </div>
+
+        <div class="chapter-reference">
+            <p>Список використаних джерел:
+            </p>
+                <ol>
+        <li><a href="https://opg.optica.org/josab/abstract.cfm?uri=josab-10-2-283">Yablonovitch, E. Photonic band-gap structures</a></li>
+        <li><a href="https://www.researchgate.net/publication/297518988_Photonic_crystals_What's_in_a_name">Yablonovitch, E. Photonic Crystals: What’s in a Name</a></li>
+        <li><a href="https://www.tf.uni-kiel.de/matwis/amat/iss/kap_7/advanced/a7_1_1.html#_dum_2">Photonic Crystals - tf.uni-kiel.de</a></li>
+    </ol>
+        </div>
+    </div>
+    <footer class="footer" id="footer">
+        <div class="footer-logo">
+            <img src="../images/logo.png" alt="Логотип" />
+        </div>
+
+        <div class="footer-text">
+            <p>Виконав студент групи ФІм-23 Огієнко Олег.<br>В рамках екзаменаційного проекту з Веб програмування.<br>В якості ідеї сайту обрана майбутня тема дипломної роботи.</p>
+        </div>
+
+<div class="footer-contacts">
+    <p>Електронна пошта: <a href="mailto:kombi21251@gmail.com">kombi21251@gmail.com</a></p>
+    <p>Телефон: <a href="tel:+380123456789">+380 123 456 789</a></p>
+</div>
+
+    </footer>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.125.2/build/three.min.js"></script>
+    <script>
+        const container = document.getElementById('photonic-crystal');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+        camera.position.set(0, 50, 100);
+        camera.lookAt(0, 0, 0);
+
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        container.appendChild(renderer.domElement);
+
+        const cubes = [];
+        const gridSize = 20;
+        let spacing = 2;
+
+        const createCube = (color) => {
+            const geometry = new THREE.BoxGeometry(1, 1, 1);
+            const material = new THREE.MeshBasicMaterial({ color: color });
+            return new THREE.Mesh(geometry, material);
+        };
+
+        const colors = [0xff0000, 0x0000ff];
+
+        for (let x = 0; x < gridSize; x++) {
+            for (let y = 0; y < gridSize; y++) {
+                for (let z = 0; z < gridSize; z++) {
+                    const colorIndex = (x + y + z) % colors.length;
+                    const cube = createCube(colors[colorIndex]);
+                    cube.position.set(x - gridSize / 2, y - gridSize / 2, z - gridSize / 2).multiplyScalar(spacing);
+                    scene.add(cube);
+                    cubes.push({ cube, x, y, z });
+                }
+            }
+        }
+
+        const updateCubes = () => {
+            cubes.forEach(({ cube, x, y, z }) => {
+                cube.position.set(
+                    x - gridSize / 2,
+                    y - gridSize / 2,
+                    z - gridSize / 2
+                ).multiplyScalar(spacing);
+            });
+        };
+
+        const onMouseMove = (event) => {
+            const rect = container.getBoundingClientRect();
+            const mouseX = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+            const mouseY = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+            camera.position.x += (mouseX * 100 - camera.position.x) * 0.05;
+            camera.position.y += (-mouseY * 100 - camera.position.y) * 0.05;
+            camera.lookAt(scene.position);
+        };
+
+        const animate = () => {
+            requestAnimationFrame(animate);
+            spacing = 1 + Math.abs(Math.sin(Date.now() * 0.0001)) * 1;
+            updateCubes();
+            renderer.render(scene, camera);
+        };
+
+        animate();
+
+        container.addEventListener('mousemove', onMouseMove, false);
+    </script>
+
+</body>
+</html>

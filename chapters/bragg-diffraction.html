@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Дифракція Брегга</title>
+        <link rel="icon" type="image/png" href="../images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;400;800;900&family=IBM+Plex+Mono:wght@200;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+    <style>
+        body, html {
+            scroll-behavior: smooth;
+            margin: 0;
+            padding-top: 0px; /* Додатковий відступ для фіксованого заголовка */
+            height: 100%;
+font-family: 'Exo 2', sans-serif;
+
+
+        }
+
+        header {
+            width: 100%;
+            padding-top: 0px;
+                        
+            height: 100px;
+            display: flex;
+            text-align: center;
+            transition: background-color 0.3s;
+             
+
+                display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+
+        }
+
+
+        header ul {
+            list-style-type: none;
+           
+
+
+
+    display: inline-block;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 120px;
+    padding-inline-start: 0px;
+
+}
+
+header li {
+    list-style-type: none;
+   
+    display: inline;
+    margin-right: 40px;
+    margin-left: 40px; /* Збільшено відступ справа */
+}
+
+header a {
+    text-decoration: none;
+    color: #161616;
+    font-size: 16px;
+    position: relative; /* Для позиціонування псевдоелемента */
+}
+
+header a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #161616;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -10px; /* Відстань від тексту */
+}
+
+header a:hover::after {
+    width: 100%;
+}
+
+h1 {
+
+        margin-block-start: 0.25em;
+    margin-block-end: 0.25em;
+}
+h2 {
+
+        margin-block-start: 0.5em;
+    margin-block-end: 1em;
+    font-size: 48px;
+}
+p{
+
+        margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+
+}
+
+#logo-container {
+    display: inline-block;
+
+        justify-content: center; /* Центрування вмісту по вертикалі */
+    align-items: center;
+    margin-top: 0;
+    padding-left: 120px;
+ 
+
+
+}
+
+#logo {
+    padding-left: 120px;
+    display: inline-block;
+    height: 65px; /* Висота логотипу */
+}
+
+        .section {
+            min-height: 80vh;
+            padding: 0px;
+            background-color: #bc98cb;
+            text-align: center;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 100px;
+            padding-right: 100px;
+
+
+        }
+
+.text-content {
+    width: 50%;
+    min-height: 80vh;
+    padding: 0px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрування вмісту по вертикалі */
+
+}
+
+.chapter-video {
+    display: flex; /* Для центрування зображення */
+            justify-content: center; /* Горизонтальне центрування */
+            align-items: center; /* Вертикальне центрування */
+padding: 0;
+margin: 0;
+
+}
+
+video {
+padding: 0;
+margin: 0;
+
+}
+        .image-content {
+            width: 100%;
+            padding: 0;
+
+                        display: inline-block; /* Для центрування зображення */
+            justify-content: center; /* Горизонтальне центрування */
+            align-items: center; /* Вертикальне центрування */
+            text-align: center;
+        }
+        .image-content-image {
+            display: inline-block;
+            height: 400px;
+                        overflow: hidden; /* Приховує все, що виходить за межі контейнера */
+                            transition: transform 0.5s; /* Анімація масштабування */
+    box-shadow: 7px 7px black; /* Додавання тіні */
+
+        }
+
+        .image-content-image:hover {
+    transform: scale(1.1); /* Збільшення розміру кнопки при наведенні */
+
+}
+
+        img {
+            display: flex;
+            max-width: 100%; /* Максимальна ширина зображення 100% від контейнера */
+            max-height: 100%; /* Максимальна висота зображення 100% від контейнера */
+            object-fit: contain; /* Зображення вміщується в контейнер, зберігаючи пропорції */
+        }
+
+.header-text-content {
+    text-align: left; /* Центрування тексту всередині header-text-content */
+    padding-left: 5%;
+}
+
+        .text-content h2 {
+            font-size: 64px;
+            text-transform: uppercase;
+                font-family: 'Exo 2', sans-serif;
+    font-weight: 800;
+    marging: 0;
+    padding: 0;
+        }
+
+        .text-content p:last-child {
+            padding: 0;
+            marging: 0;
+        }
+
+
+
+        .button-neo {
+    background-color: #fdfd96; /* Світло-жовтий фон */
+    color: black; /* Чорний текст */
+    border: 2px solid black; /* Чорна межа */
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: transform 0.3s; /* Анімація масштабування */
+    box-shadow: 3px 3px black; /* Додавання тіні */
+}
+
+.button-neo:hover {
+    transform: scale(1.05); /* Збільшення розміру кнопки при наведенні */
+
+}
+
+#section3 {
+        background-color: #b9e2f8;
+
+}
+
+#section3 .button-neo {
+    background-color: #ffc5c8;
+}
+
+#section4 {
+        background-color: #b9e7de;
+
+}
+
+#section4 .button-neo {
+    background-color: #bc98cb;
+}
+
+
+        .main-section {
+            min-height: 80vh;
+            padding: 0px;
+            background-color: #f0f0f0;
+            text-align: center;
+
+
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #b9e2f8;
+                        background-image: url('../images/school-pattern.png');
+            background-repeat: repeat;
+            background-size: 1000px 1000px;
+        }
+
+.main-text-content {
+    width: 100%;
+    min-height: 100vh;
+    padding: 0px;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрування вмісту по вертикалі */
+    align-items: center;
+
+}
+
+.main-header-text-content {
+    align-items: center; /* Центрування тексту всередині header-text-content */
+
+    padding: 50px;
+    max-width: 60%;
+    background-color: #ffc5c8;
+    box-shadow: 10px 10px black;
+}
+
+        .main-text-content h1 {
+            font-size: 72px;
+            text-transform: uppercase;
+                font-family: 'Exo 2', sans-serif;
+                
+                text-align: center;
+    font-weight: 900;
+    marging: 0;
+    padding: 0;
+
+        }
+        .main-text-content p {
+            padding: 0;
+            marging: 0;
+            
+
+        }
+
+        .main-text-content p:last-child {
+            padding: 0;
+            marging: 0;
+            
+
+        }
+
+                .main-header-text-content .button-neo {
+    background-color: #40d39c; /* Світло-жовтий фон */
+    color: black; /* Чорний текст */
+    border: 2px solid black; /* Чорна межа */
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: transform 0.3s; /* Анімація масштабування */
+    box-shadow: 3px 3px black; /* Додавання тіні */
+}
+
+.photonic-content {
+                width: 400px;
+            height: 400px;
+}
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            height: 300px;
+            padding: 20px;
+            background-color: #ffc5c8; /* Світлий фон для футера */
+            border-top: 1px solid #dcdcdc; /* Розділова лінія на верху футера */
+                        padding-left: 100px;
+            padding-right: 100px;
+        }
+
+.footer-logo {
+    height: 120px;
+}
+
+.footer-text {
+
+}
+
+
+.footer-contact {
+}
+
+        .footer-contacts a {
+            color: #007bff; /* Синій колір для посилань */
+            text-decoration: none; /* Видалення підкреслення */
+        }
+
+        .footer-contacts a:hover {
+            color: #0056b3; /* Темніший синій колір при наведенні */
+            text-decoration: underline; /* Підкреслення при наведенні */
+        }
+
+        .footer-contacts a:active {
+            color: #004080; /* Ще темніший колір при натисканні */
+        }
+
+        .footer-contacts a:focus {
+            outline: none; /* Видалення контуру при фокусуванні */
+            box-shadow: 0 0 3px #007bff; /* Додавання синьої тіні навколо посилання при фокусуванні */
+        }
+
+
+        .chapter-section {
+
+
+
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 400;
+            
+            align-items: center;
+            background-color: #f0f0f0;
+            background-image: url('../images/school-pattern.png');
+            background-repeat: repeat;
+            background-size: 1000px 1000px;
+        }
+        .chapter-container {
+
+            max-width: 50%;
+            margin: 0px auto;
+            
+            padding: 20px;
+        }
+
+        .chapter-container h2 {
+            text-align: center;
+
+        }
+        .chapter-text h3 {
+            color: #d62828;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            font-size: 24px;
+
+        }
+        .chapter-text p {
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .chapter-text-box {
+            background-color: #f77f00;
+            color: #fff;
+            padding: 15px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 5px solid black;
+            font-family: 'IBM Plex Mono', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+        }
+        .chapter-content {
+            display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрування вмісту по вертикалі */
+    align-items: center;
+        }
+        .chapter-reference {
+            font-size: 14px;
+            font-style: italic;
+        }
+
+                .chapter-formula {
+            padding: 0;
+            margin: 0;
+            font-family: 'IBM Plex Mono', sans-serif;
+            font-weight: 400;
+            text-align: center;
+            align-items: center;
+
+        }
+
+                        .chapter-formula p {
+            background-color: #f77f00;
+            color: #fff;
+            padding: 5px;
+            margin: 10px;
+            border: 5px solid black;
+            font-family: 'IBM Plex Mono', sans-serif;
+            font-weight: 400;
+            text-align: center;
+            width: 300px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<header id="header">
+    <div id="logo-container">
+        <img src="../images/logo.png" alt="Логотип" id="logo">
+
+    </div>
+    <nav>
+    <ul>
+        <li><a href="../index.html">Головна</a></li>
+        <li><a href="../chapters/control-work.html">Контроль знань</a></li>
+        <li><a href="#footer">Контакти</a></li>
+    </ul>
+</nav>
+</header>
+    <section class="chapter-section">
+    <div class="chapter-container">
+        <h2>Дифракція Брегга</h2>
+
+        <div class="chapter-text">
+            <p>Дифракція Брегга була вперше запропонована Вільямом Лоуренсом Бреггом та його батьком Вільямом Генрі Бреггом у 1913 році у відповідь на їх відкриття, що кристалічні тверді тіла створюють дивовижні моделі відбитого рентгенівського випромінювання (на відміну від, скажімо, рідини). Вони виявили, що ці кристали при певних конкретних довжинах хвиль і кутах падіння створюють інтенсивні піки відбитого випромінювання.</p>
+</div>
+            <div class="image-content">
+                <div class="image-content-image">
+                <img src="../images/diffraction-grating.webp" alt="Опис зображення">
+            </div>
+            </div>
+    <div class="chapter-text">        
+<p>Сер Вільям Лоуренс Брегг пояснив цей результат моделюванням кристала як набору дискретних паралельних площин, розділених постійним параметром  d. Було висловлено припущення, що падаюче рентгенівське випромінювання створюватиме пік Брегга, якщо його відбиття від різних площин конструктивно заважатиме. Інтерференція є конструктивною, коли зсув фази кратний 2π; ця умова може бути виражена законом Брегга (див.  розділ умов Брегга  нижче) і вперше була представлена сером Вільямом Лоуренсом Бреггом 11 листопада 1912 року Кембриджському філософському товариству. Незважаючи на те, що закон Брегга простий, він підтвердив існування реальних частинок в атомному масштабі, а також забезпечив новий потужний інструмент для вивчення кристалів у формі рентгенівської та нейтронної дифракції.</p>
+</p>
+        </div>
+            <div class="image-content">
+                <div class="image-content-image">
+                <img src="../images/bragglaw.gif" alt="Опис зображення">
+            </div>
+            </div>
+
+        <div class="chapter-text">
+            <p>Закон Брегга можна легко вивести, розглянувши умови, необхідні для того, щоб фази променів збігалися, коли кут падіння дорівнює куту відбиття. Промені падаючого пучка завжди знаходяться в фазі і паралельні до точки, в якій верхній промінь потрапляє на верхній шар атома z. Другий промінь продовжується до наступного шару, де він розсіюється атомом B. Другий промінь повинен пройти додаткову відстань AB+BC, щоб два промені продовжували рухатися поруч і паралельно. Ця додаткова відстань має бути цілим (n), кратним довжині хвилі (λ), щоб фази двох променів були однаковими:</p>
+</div>
+<div class="chapter-formula">
+    <p><math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>n</mi><mi>&lambda;</mi><mo>=</mo><mi>A</mi><mi>B</mi><mo>+</mo><mi>B</mi><mi>C</mi>
+    </math></p>
+</div>
+
+<div class="chapter-text">
+            <p>Отримання закону Брегга за допомогою геометрії відбиття та застосування тригонометрії. Нижній промінь повинен пройти додаткову відстань (AB + BC), щоб продовжувати рухатися паралельно та поруч із верхнім променем. <br>Визнаючи d гіпотенузою прямокутного трикутника ABz, ми можемо використовувати тригонометрію, щоб зв’язати d і q з відстанню (AB + BC). Відстань AB протилежна q , отже,</p>
+</div>
+<div class="chapter-formula">
+    <p><math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>A</mi><mi>B</mi><mo>=</mo><mi>d</mi><mo>&InvisibleTimes;</mo><mi>sin</mi><mo>&InvisibleTimes;</mo><mi>&theta;</mi>
+    </math></p>
+</div>
+<div class="chapter-text">
+            <p>Оскільки AB=BC, ми можемо отримати закон Брега у наступному вигляді:</p>
+</div>
+<div class="chapter-formula">
+    <p>    <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>n</mi>
+        <mi>&lambda;</mi>
+        <mo>=</mo>
+        <mn>2</mn>
+        <mi>d</mi>
+        <mo>&InvisibleTimes;</mo>
+        <mi>sin</mi>
+        <mo>&InvisibleTimes;</mo>
+        <mi>&theta;</mi>
+    </math></p>
+</div>
+
+
+
+
+        <div class="chapter-text">
+            <h3>Про основні процеси розціювання</h3>
+<p>Коли рентгенівські промені падають на атом , вони змушують електронну хмару рухатися, як і будь-яка електромагнітна хвиля . Рух цих зарядів повторно випромінює хвилі з тією ж частотою , злегка розмиті через різноманітні ефекти; це явище відоме як розсіювання Релея (або пружне розсіювання). Розсіяні хвилі самі по собі можуть бути розсіяними, але це вторинне розсіювання вважається незначним.
+<br>
+Аналогічний процес відбувається при розсіянні нейтронних хвиль на ядрах або при когерентній спіновій взаємодії з неспареним електроном . Ці повторно випромінювані хвильові поля взаємодіють одне з одним конструктивно або деструктивно (хвилі, що перекриваються, або сумуються, створюючи сильніші піки, або певною мірою віднімаються одна від одної), створюючи дифракційну картину на детекторі чи плівці. Отримана хвильова інтерференційна картина є основою дифракційного аналізу. Цей аналіз називається дифракцією Брегга .</p>
+        </div>
+        <div class="chapter-text-box">
+            <h3>Фотонні кристали та бреггівське розсіювання видимого світла</h3>
+<p>Колоїдний кристал — це високовпорядкований масив частинок, який утворюється на великій відстані (від кількох міліметрів до одного сантиметра в довжину); Колоїдні кристали мають вигляд і властивості, приблизно аналогічні своїм атомним або молекулярним аналогам. [16] Протягом багатьох років було відомо, що через відштовхувальну кулонівську взаємодію електрично заряджені макромолекули у водному середовищі можуть демонструвати дальні кристалоподібні кореляції, причому відстані між частинками часто значно перевищують діаметр окремої частинки. Періодичні масиви сферичних частинок створюють міжвузлові порожнечі (проміжки між частинками), які діють як природні дифракційні решітки для хвиль видимого світла , коли відстань між вузлами має той самий порядок , що й падаюча світлова хвиля. [17] [18] [19] У цих випадках у природі блискуча райдужність (або гра кольорів) пояснюється дифракцією та конструктивною інтерференцією хвиль видимого світла відповідно до закону Брегга, у справі, аналогічній розсіюванню рентгенівських променів . у твердому кристалі. Ефекти виникають у видимому діапазоні довжин хвиль, оскільки параметр розділення d набагато більший, ніж для справжніх кристалів. Дорогоцінний опал є одним із прикладів колоїдних кристалів, які створюють вражаючі оптичні ефекти.</p>
+</div>
+
+
+        <div class="chapter-reference">
+            <p>Список використаних джерел:</p>
+                            <ol>
+        <li><a href="http://www.bedwani.ch/xrf/braggs/braggs.htm">Bragg's Law and Diffraction - bedwani.ch</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Bragg%27s_law">Bragg's law - en.wikipedia.org</a></li>
+        <li><a href="https://www.tf.uni-kiel.de/matwis/amat/iss/kap_4/illustr/s4_2_2.html">X-Ray Diffraction - tf.uni-kiel.de</a></li>
+    </ol>
+        </div>
+    </div>
+    <footer class="footer" id="footer">
+        <div class="footer-logo">
+            <img src="../images/logo.png" alt="Логотип" />
+        </div>
+
+        <div class="footer-text" id="footer">
+            <p>Виконав студент групи ФІм-23 Огієнко Олег.<br>В рамках екзаменаційного проекту з Веб програмування.<br>В якості ідеї сайту обрана майбутня тема дипломної роботи.</p>
+        </div>
+
+<div class="footer-contacts">
+    <p>Електронна пошта: <a href="mailto:kombi21251@gmail.com">kombi21251@gmail.com</a></p>
+    <p>Телефон: <a href="tel:+380123456789">+380 123 456 789</a></p>
+</div>
+
+    </footer>
+</body>
+</html>

@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Синтетичні опали</title>
+        <link rel="icon" type="image/png" href="../images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;400;800;900&family=IBM+Plex+Mono:wght@200;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+    <style>
+        body, html {
+            scroll-behavior: smooth;
+            margin: 0;
+            padding-top: 0px; /* Додатковий відступ для фіксованого заголовка */
+            height: 100%;
+font-family: 'Exo 2', sans-serif;
+
+
+        }
+
+        header {
+            width: 100%;
+            padding-top: 0px;
+                        
+            height: 100px;
+            display: flex;
+            text-align: center;
+            transition: background-color 0.3s;
+             
+
+                display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+
+        }
+
+
+        header ul {
+            list-style-type: none;
+           
+
+
+
+    display: inline-block;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 120px;
+    padding-inline-start: 0px;
+
+}
+
+header li {
+    list-style-type: none;
+   
+    display: inline;
+    margin-right: 40px;
+    margin-left: 40px; /* Збільшено відступ справа */
+}
+
+header a {
+    text-decoration: none;
+    color: #161616;
+    font-size: 16px;
+    position: relative; /* Для позиціонування псевдоелемента */
+}
+
+header a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #161616;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -10px; /* Відстань від тексту */
+}
+
+header a:hover::after {
+    width: 100%;
+}
+
+h1 {
+
+        margin-block-start: 0.25em;
+    margin-block-end: 0.25em;
+}
+h2 {
+
+        margin-block-start: 0.5em;
+    margin-block-end: 1em;
+    font-size: 48px;
+}
+p{
+
+        margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+
+}
+
+#logo-container {
+    display: inline-block;
+
+        justify-content: center; /* Центрування вмісту по вертикалі */
+    align-items: center;
+    margin-top: 0;
+    padding-left: 120px;
+ 
+
+
+}
+
+#logo {
+    padding-left: 120px;
+    display: inline-block;
+    height: 65px; /* Висота логотипу */
+}
+
+        .section {
+            min-height: 80vh;
+            padding: 0px;
+            background-color: #bc98cb;
+            text-align: center;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 100px;
+            padding-right: 100px;
+
+
+        }
+
+.text-content {
+    width: 50%;
+    min-height: 80vh;
+    padding: 0px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрування вмісту по вертикалі */
+
+}
+
+.chapter-video {
+    display: flex; /* Для центрування зображення */
+            justify-content: center; /* Горизонтальне центрування */
+            align-items: center; /* Вертикальне центрування */
+padding: 0;
+margin: 0;
+
+}
+
+video {
+padding: 0;
+margin: 0;
+
+}
+        .image-content {
+            width: 100%;
+            padding: 0;
+
+                        display: inline-block; /* Для центрування зображення */
+            justify-content: center; /* Горизонтальне центрування */
+            align-items: center; /* Вертикальне центрування */
+            text-align: center;
+        }
+        .image-content-image {
+            display: inline-block;
+            
+                        overflow: hidden; /* Приховує все, що виходить за межі контейнера */
+                            transition: transform 0.5s; /* Анімація масштабування */
+    box-shadow: 7px 7px black; /* Додавання тіні */
+
+        }
+
+        .image-content-image:hover {
+    transform: scale(1.1); /* Збільшення розміру кнопки при наведенні */
+
+}
+
+        img {
+            display: flex;
+            max-width: 100%; /* Максимальна ширина зображення 100% від контейнера */
+            max-height: 100%; /* Максимальна висота зображення 100% від контейнера */
+            object-fit: contain; /* Зображення вміщується в контейнер, зберігаючи пропорції */
+        }
+
+.header-text-content {
+    text-align: left; /* Центрування тексту всередині header-text-content */
+    padding-left: 5%;
+}
+
+        .text-content h2 {
+            font-size: 64px;
+            text-transform: uppercase;
+                font-family: 'Exo 2', sans-serif;
+    font-weight: 800;
+    marging: 0;
+    padding: 0;
+        }
+
+        .text-content p:last-child {
+            padding: 0;
+            marging: 0;
+        }
+
+
+
+        .button-neo {
+    background-color: #fdfd96; /* Світло-жовтий фон */
+    color: black; /* Чорний текст */
+    border: 2px solid black; /* Чорна межа */
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: transform 0.3s; /* Анімація масштабування */
+    box-shadow: 3px 3px black; /* Додавання тіні */
+}
+
+.button-neo:hover {
+    transform: scale(1.05); /* Збільшення розміру кнопки при наведенні */
+
+}
+
+#section3 {
+        background-color: #b9e2f8;
+
+}
+
+#section3 .button-neo {
+    background-color: #ffc5c8;
+}
+
+#section4 {
+        background-color: #b9e7de;
+
+}
+
+#section4 .button-neo {
+    background-color: #bc98cb;
+}
+
+
+        .main-section {
+            min-height: 80vh;
+            padding: 0px;
+            background-color: #f0f0f0;
+            text-align: center;
+
+
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #b9e2f8;
+                        background-image: url('../images/school-pattern.png');
+            background-repeat: repeat;
+            background-size: 1000px 1000px;
+        }
+
+.main-text-content {
+    width: 100%;
+    min-height: 100vh;
+    padding: 0px;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрування вмісту по вертикалі */
+    align-items: center;
+
+}
+
+.main-header-text-content {
+    align-items: center; /* Центрування тексту всередині header-text-content */
+
+    padding: 50px;
+    max-width: 60%;
+    background-color: #ffc5c8;
+    box-shadow: 10px 10px black;
+}
+
+        .main-text-content h1 {
+            font-size: 72px;
+            text-transform: uppercase;
+                font-family: 'Exo 2', sans-serif;
+                
+                text-align: center;
+    font-weight: 900;
+    marging: 0;
+    padding: 0;
+
+        }
+        .main-text-content p {
+            padding: 0;
+            marging: 0;
+            
+
+        }
+
+        .main-text-content p:last-child {
+            padding: 0;
+            marging: 0;
+            
+
+        }
+
+                .main-header-text-content .button-neo {
+    background-color: #40d39c; /* Світло-жовтий фон */
+    color: black; /* Чорний текст */
+    border: 2px solid black; /* Чорна межа */
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: transform 0.3s; /* Анімація масштабування */
+    box-shadow: 3px 3px black; /* Додавання тіні */
+}
+
+.photonic-content {
+                width: 400px;
+            height: 400px;
+}
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            height: 300px;
+            padding: 20px;
+            background-color: #ffc5c8; /* Світлий фон для футера */
+            border-top: 1px solid #dcdcdc; /* Розділова лінія на верху футера */
+                        padding-left: 100px;
+            padding-right: 100px;
+        }
+
+.footer-logo {
+    height: 120px;
+}
+
+.footer-text {
+
+}
+
+
+.footer-contact {
+}
+        .footer-contacts a {
+            color: #007bff; /* Синій колір для посилань */
+            text-decoration: none; /* Видалення підкреслення */
+        }
+
+        .footer-contacts a:hover {
+            color: #0056b3; /* Темніший синій колір при наведенні */
+            text-decoration: underline; /* Підкреслення при наведенні */
+        }
+
+        .footer-contacts a:active {
+            color: #004080; /* Ще темніший колір при натисканні */
+        }
+
+        .footer-contacts a:focus {
+            outline: none; /* Видалення контуру при фокусуванні */
+            box-shadow: 0 0 3px #007bff; /* Додавання синьої тіні навколо посилання при фокусуванні */
+        }
+
+        .chapter-section {
+
+
+
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 400;
+            
+            align-items: center;
+            background-color: #f0f0f0;
+            background-image: url('../images/school-pattern.png');
+            background-repeat: repeat;
+            background-size: 1000px 1000px;
+        }
+        .chapter-container {
+
+            max-width: 50%;
+            margin: 0px auto;
+            
+            padding: 20px;
+        }
+
+        .chapter-container h2 {
+            text-align: center;
+
+        }
+        .chapter-text h3 {
+            color: #d62828;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            font-size: 24px;
+
+        }
+        .chapter-text p {
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .chapter-text-box {
+            background-color: #f77f00;
+            color: #fff;
+            padding: 15px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 5px solid black;
+            font-family: 'IBM Plex Mono', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+        }
+        .chapter-content {
+            display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрування вмісту по вертикалі */
+    align-items: center;
+        }
+        .chapter-reference {
+            font-size: 14px;
+            font-style: italic;
+        }
+
+                .chapter-formula {
+            padding: 0;
+            margin: 0;
+            font-family: 'IBM Plex Mono', sans-serif;
+            font-weight: 400;
+            text-align: center;
+            align-items: center;
+
+        }
+
+                        .chapter-formula p {
+            background-color: #f77f00;
+            color: #fff;
+            padding: 5px;
+            margin: 10px;
+            border: 5px solid black;
+            font-family: 'IBM Plex Mono', sans-serif;
+            font-weight: 400;
+            text-align: center;
+            width: 300px;
+            display: inline-block;
+        }
+            #natural-photonic .image-content {
+        width: 600px; /* Зображення займає всю ширину контейнера */
+        box-shadow: none; /* Видалення тіні */
+        border: none; /* Прибрати будь-які рамки, якщо вони є */
+    }
+
+                #natural-photonic .image-content-image {
+        box-shadow: none; /* Видалення тіні */
+        border: none; /* Прибрати будь-які рамки, якщо вони є */
+    }
+    </style>
+</head>
+<body>
+
+<header id="header">
+    <div id="logo-container">
+        <img src="../images/logo.png" alt="Логотип" id="logo">
+
+    </div>
+    <nav>
+    <ul>
+        <li><a href="../index.html">Головна</a></li>
+        <li><a href="../chapters/control-work.html">Контроль знань</a></li>
+        <li><a href="#footer">Контакти</a></li>
+    </ul>
+</nav>
+</header>
+<section class="chapter-section">
+    <div class="chapter-container">
+        <h2>Фотонні кристали в природі</h2>
+                <div class="chapter-text">
+            <p>Протягом мільйонів років еволюції природа подарувала нам численні приклади фотонних наноструктур, для яких характерне явище іризації.
+</p>
+<p>Іризація — оптичний ефект, який полягає у тому, що поверхня тіла змінює колір залежно від кута спостереження або кута освітлення. Саме завдяки періодичності структури та наявності заборонених зон ми можемо спостерігати іризацію.
+</p>
+
+        </div>
+                    <div class="image-content">
+                <div class="image-content-image">
+                <img src="../images/photonic-crystals-types.png" alt="Опис зображення">
+            </div>
+            </div>
+
+            <div class="chapter-text"><p>Яскраві приклади фотонних кристалів в природі:</p>
+    <ul>
+        <li>Дорогоцінні опали.</li>
+        <li>Крила метеликів та павичів.</li>
+        <li>Луска риб.</li>
+        <li>Деякі види жуків.</li>
+        <li>Рослини.</li>
+        <li>Хамелеони.</li>
+    </ul></div>
+
+<div class="image-content" id="natural-photonic">
+    <div class="image-content-image" >
+        <img src="../images/natural-photonic.png" alt="Опис зображення" usemap="#photonic-map">
+        
+        <map name="photonic-map">
+            <!-- Прямокутна область -->
+            <area shape="rect" coords="40,100,330,300" href="lhttps://uk.wikipedia.org/wiki/%D0%A0%D0%B8%D0%B1%D0%B8" alt="Підказка 1" title="Рибка">
+            
+            <!-- Кругова область -->
+            <area shape="circle" coords="660,120,100" href="https://ru.wikipedia.org/wiki/%D0%9E%D0%BF%D0%B0%D0%BB" alt="Підказка 3" title="Природний опал">
+            
+            <!-- Полігональна область -->
+            <area shape="poly" coords="420,15,500,100,760,60,690,280,500,330,400,33" href="https://uk.wikipedia.org/wiki/%D0%9B%D1%83%D1%81%D0%BA%D0%BE%D0%BA%D1%80%D0%B8%D0%BB%D1%96" alt="Підказка 2" title="Метелик. Підказка не вірно відображаєьбся, бо зображення масштабується.">
+        </map>
+    </div>
+</div>
+
+
+
+<h2>Синтетичні опали</h2>
+
+        <div class="chapter-text">
+            
+            <p>Для використання фотонних кристалів в оптичному зв’язку та оптоелектроніці, в видимій та ближній інфрачервоній областях спектру, періодична модуляція діелектричної проникненості повинна бути порівняною з довжиною електромагнітних хвиль цих діапазонів спектру (~400нм-1500нм). Перспективними матеріалами для цього діапазону вважаються так звані колоїдні структури та синтетичні опали.
+</p>
+        </div>
+
+                          <div class="image-content">
+                <div class="image-content-image">
+                <img src="https://www.synthetic-opals.com/images/portfolio/Synthetic-Opal/Synthetic-Impregnated-Opal/synthetic-opal-aurora-opal-white.jpg" alt="Опис зображення">
+            </div>
+            </div>
+
+                <div class="chapter-text">
+            <h3>Виготовлення</h3>
+            <p>Синтетичні опали можуть бути утворені монодисперсними сферичними частинками SiO<sub>2</sub>, TiO<sub>2</sub>, CeO<sub>2</sub>, поліметилметакрилату чи полістиролу.<br>
+Першим кроком при формуванні синтетичних опалів являється синтез монодисперсних мікросфер. Їх розмір визначає періодичність структури ФК та, як наслідок, положення фотонної забороненої зони в енергетичному спектрі, в той час як монодисперсність частинок являється одним з ключових факторів, який визначає можливість самозбірки частинок в упорядковані масиви.
+Глобули кремнезему отримують за допомогою відповідної хімічної реакції: реакцією гідролізу ефіру ортокремнієвої кислоти (тетраетоксісилан Si(OC<sub>2</sub>H<sub>5</sub>)<sub>4</sub> – ТЕОС) в етиловому спирті.
+</p>
+<p>Наступним етапом виготовлення СО є процес упорядкування отриманих глобул. Для всіх типів синтетичних опалів даний етап мало чим відрізняється. Відомі різні методи отримання упорядкованих масивів глобул: методи седиментації під дією гравітації або електричного поля, осадження на горизонтальні або вертикальні підкладки.</p>
+</div>
+
+<div class="chapter-video">
+    <video width="720" height="480" controls>
+        <source src="https://www.synthetic-opals.com/images/synthetic-opal-manufacture/colloidal-crystallization-2.mp4" type="video/mp4">
+        Ваш браузер не підтримує відео тег.
+    </video>
+</div>
+
+<div class="chapter-text">
+<p>Метод седиментації заснований на тому, що сфери під дією сили тяжіння опускаються на дно кювети. В результаті на дні кювети утворюються щільноупаковані впорядковані шари, паралельні дну кювети і перпендикулярні осі росту зразка.</p>
+</div>
+                    <div class="image-content">
+                <div class="image-content-image">
+                <img src="https://www.synthetic-opals.com/images/synthetic-opal-manufacture/synthetic-opal-silica-sedimentation.jpg" alt="Опис зображення">
+            </div>
+            </div>
+
+<div class="chapter-text">
+<p> Процес седиментації може займати кілька місяців. Метод седиментації використовується для осадження глобул діаметром до 800 нм. Глобули діаметром більше 800 нм осаджуються досить швидко та формують невпорядковану тонку плівку, тому швидкість осідання потрібно сповільнити.</p>
+        </div>
+
+
+        <div class="chapter-text">
+            <h3>Будова та структура</h3>
+            <p>Cинтетичні опали складаються з регулярно розташованих кульок діоксиду кремнію (SiO<sub>2</sub>), що формують тривимірну структуру, схожу на природні опали.</p>
+ </div>
+                         <div class="image-content">
+                <div class="image-content-image">
+                <img src="https://www.synthetic-opals.com/images/synthetic-opal-manufacture/synthetic-opal-monodisperse-silica-particles.jpg" alt="Опис зображення">
+            </div>
+            </div>
+            <div class="chapter-text">
+            <p>Оптичні властивості синтетичних опалів визначаються розміром щільноупакованих частинок, а також діелектричними проникненостями глобул та пор. Період модуляції діелектричної проникненості визначає енергетичне положенння заборонених зон.</p>
+
+            <p>В синтетичних опалах з SiO<sub>2</sub> діаметри глобул кремнезему можуть варіюватися в діапазоні 100-1000нм. На долю пустот в таких СО може приходитись до 26% повного об'єму (при точковому контакті між глобулами аморфного SiO<sub>2</sub>.
+</p>
+        </div>
+
+
+                <div class="chapter-text">
+            <h3>Оптичні властивості</h3>
+                <p>Розсіювання світлових хвиль в періодичних структурах (дифракційних решітках), відоме як брегівська дифракція. Для дифракції світла в середовищі з показником заломлення, який періодично змінюється, положення стоп-зони задається умовою Брегга:</p>
+</div>
+<div class="chapter-formula">
+    <p> <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>&lambda;</mi>
+        <mo>=</mo>
+        <mfrac>
+            <mrow>
+                <mn>2</mn>
+                <mi>d</mi>
+            </mrow>
+            <mi>k</mi>
+        </mfrac>
+        <msqrt>
+            <mrow>
+                <msup>
+                    <mi>n</mi>
+                    <mn>2</mn>
+                </msup>
+                <mo>(</mo>
+                <mi>&lambda;</mi>
+                <mo>)</mo>
+                <mo>-</mo>
+                <msup>
+                    <mi>sin</mi>
+                    <mn>2</mn>
+                </msup>
+                <mo>(</mo>
+                <mi>&Theta;</mi>
+                <mo>)</mo>
+            </mrow>
+        </msqrt>
+    </math></p>
+</div>
+<div class="chapter-text">
+    <p>де λ – довжина падаючої хвилі, d – відстань між шарами упорядкованих мікросфер, k – порядок дифракції, n(λ) – показник заломлення середовища, Θ – кут між падаючим променем та нормаллю до зразка.</p>
+
+    <p>Для оптично неоднорідного середовища потрібно брати ефективний показник заломлення:</p>
+</div>
+<div class="chapter-formula">
+    <p>\( n_{\text{eff}}^2 = n_{\text{SiO}_2}^2 (\lambda) \cdot f_{\text{SiO}_2} + n_{\text{air}}^2 (1 - f_{\text{SiO}_2}) \)</p>
+</div>
+<div class="chapter-text">
+    <p>де n<sub>SiO<sub>2</sub></sub> – показник заломлення кремнезему, f<sub>SiO<sub>2</sub></sub> – фактор заповнення кремнезему, який дорівнює 0,74 (в ГЦК упаковці 74% від загального об’єму зайнято SiO<sub>2</sub>-наносферами), n<sub>air</sub> – коефіцієнт заломлення повітря.</p>
+
+    <p>Як випливає з умови, положення фотонної забороненої зони при використанні синтетичних опалових матриць досить легко міняти в широких межах, використовуючи опали з різним розміром глобул, або змінюючи кут падіння випромінювання на зразок.</p>
+    <p>Одним з основних способів отримання інформації про параметри (ширини і положення) фотонної забороненої зони є вимір спектрів пропускання та відображення. Оцінити рівень монокристалічного досконалості дозволяє аналіз спектрів пропускання. Глибина провалу в спектрах пропускання характеризує ступінь монокристалічної досконалості синтетичного опалу.</p>
+        </div>
+
+        <div class="chapter-reference">
+            <p>Список використаних джерел:</p>
+                                        <ol>
+        <li><a href="https://www.synthetic-opals.com/">Synthetic Opal - synthetic-opals.com</a></li>
+        <li>Горелик, В. С. Оптика глобулярных фотонных кристаллов</li>
+        <li><a href="https://www.tf.uni-kiel.de/matwis/amat/iss/kap_4/illustr/s4_2_2.html">X-Ray Diffraction - tf.uni-kiel.de</a></li>
+    </ol>
+        </div>
+    </div>
+    <footer class="footer" id="footer">
+        <div class="footer-logo">
+            <img src="../images/logo.png" alt="Логотип" />
+        </div>
+
+        <div class="footer-text" id="footer">
+            <p>Виконав студент групи ФІм-23 Огієнко Олег.<br>В рамках екзаменаційного проекту з Веб програмування.<br>В якості ідеї сайту обрана майбутня тема дипломної роботи.</p>
+        </div>
+
+<div class="footer-contacts">
+    <p>Електронна пошта: <a href="mailto:kombi21251@gmail.com">kombi21251@gmail.com</a></p>
+    <p>Телефон: <a href="tel:+380123456789">+380 123 456 789</a></p>
+</div>
+
+    </footer>
+</body>
+</html>

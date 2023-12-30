@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Контроль знань</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;400;800;900&family=IBM+Plex+Mono:wght@200;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+    <style>
+        body, html {
+            scroll-behavior: smooth;
+            margin: 0;
+            padding-top: 0px; /* Додатковий відступ для фіксованого заголовка */
+            height: 100%;
+font-family: 'Exo 2', sans-serif;
+
+
+        }
+
+        header {
+            width: 100%;
+            padding-top: 0px;
+                        
+            height: 100px;
+            display: flex;
+            text-align: center;
+            transition: background-color 0.3s;
+             
+
+                display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+
+        }
+
+
+        header ul {
+            list-style-type: none;
+           
+
+
+
+    display: inline-block;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 120px;
+    padding-inline-start: 0px;
+
+}
+
+header li {
+    list-style-type: none;
+   
+    display: inline;
+    margin-right: 40px;
+    margin-left: 40px; /* Збільшено відступ справа */
+}
+
+header a {
+    text-decoration: none;
+    color: #161616;
+    font-size: 16px;
+    position: relative; /* Для позиціонування псевдоелемента */
+}
+
+header a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #161616;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -10px; /* Відстань від тексту */
+}
+
+header a:hover::after {
+    width: 100%;
+}
+
+h1 {
+
+        margin-block-start: 0.25em;
+    margin-block-end: 0.25em;
+}
+h2 {
+
+        margin-block-start: 0.5em;
+    margin-block-end: 1em;
+    font-size: 48px;
+}
+p{
+
+        margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+
+}
+
+#logo-container {
+    display: inline-block;
+
+        justify-content: center; /* Центрування вмісту по вертикалі */
+    align-items: center;
+    margin-top: 0;
+    padding-left: 120px;
+ 
+
+
+}
+
+#logo {
+    padding-left: 120px;
+    display: inline-block;
+    height: 65px; /* Висота логотипу */
+}
+
+        .section {
+            min-height: 80vh;
+            padding: 0px;
+            background-color: #bc98cb;
+            text-align: center;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 100px;
+            padding-right: 100px;
+
+
+        }
+
+.text-content {
+    width: 50%;
+    min-height: 80vh;
+    padding: 0px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрування вмісту по вертикалі */
+
+}
+
+.chapter-video {
+    display: flex; /* Для центрування зображення */
+            justify-content: center; /* Горизонтальне центрування */
+            align-items: center; /* Вертикальне центрування */
+padding: 0;
+margin: 0;
+
+}
+
+video {
+padding: 0;
+margin: 0;
+
+}
+        .image-content {
+            width: 100%;
+            padding: 0;
+
+                        display: inline-block; /* Для центрування зображення */
+            justify-content: center; /* Горизонтальне центрування */
+            align-items: center; /* Вертикальне центрування */
+            text-align: center;
+        }
+        .image-content-image {
+            display: inline-block;
+            height: 400px;
+                        overflow: hidden; /* Приховує все, що виходить за межі контейнера */
+                            transition: transform 0.5s; /* Анімація масштабування */
+    box-shadow: 7px 7px black; /* Додавання тіні */
+
+        }
+
+        .image-content-image:hover {
+    transform: scale(1.1); /* Збільшення розміру кнопки при наведенні */
+
+}
+
+        img {
+            display: flex;
+            max-width: 100%; /* Максимальна ширина зображення 100% від контейнера */
+            max-height: 100%; /* Максимальна висота зображення 100% від контейнера */
+            object-fit: contain; /* Зображення вміщується в контейнер, зберігаючи пропорції */
+        }
+
+.header-text-content {
+    text-align: left; /* Центрування тексту всередині header-text-content */
+    padding-left: 5%;
+}
+
+        .text-content h2 {
+            font-size: 64px;
+            text-transform: uppercase;
+                font-family: 'Exo 2', sans-serif;
+    font-weight: 800;
+    marging: 0;
+    padding: 0;
+        }
+
+        .text-content p:last-child {
+            padding: 0;
+            marging: 0;
+        }
+
+
+
+        .button-neo {
+    background-color: #fdfd96; /* Світло-жовтий фон */
+    color: black; /* Чорний текст */
+    border: 2px solid black; /* Чорна межа */
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: transform 0.3s; /* Анімація масштабування */
+    box-shadow: 3px 3px black; /* Додавання тіні */
+}
+
+.button-neo:hover {
+    transform: scale(1.05); /* Збільшення розміру кнопки при наведенні */
+
+}
+
+#section3 {
+        background-color: #b9e2f8;
+
+}
+
+#section3 .button-neo {
+    background-color: #ffc5c8;
+}
+
+#section4 {
+        background-color: #b9e7de;
+
+}
+
+#section4 .button-neo {
+    background-color: #bc98cb;
+}
+
+
+        .main-section {
+            min-height: 80vh;
+            padding: 0px;
+            background-color: #f0f0f0;
+            text-align: center;
+
+
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #b9e2f8;
+                        background-image: url('../images/school-pattern.png');
+            background-repeat: repeat;
+            background-size: 1000px 1000px;
+        }
+
+.main-text-content {
+    width: 100%;
+    min-height: 100vh;
+    padding: 0px;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрування вмісту по вертикалі */
+    align-items: center;
+
+}
+
+.main-header-text-content {
+    align-items: center; /* Центрування тексту всередині header-text-content */
+
+    padding: 50px;
+    max-width: 60%;
+    background-color: #ffc5c8;
+    box-shadow: 10px 10px black;
+}
+
+        .main-text-content h1 {
+            font-size: 72px;
+            text-transform: uppercase;
+                font-family: 'Exo 2', sans-serif;
+                
+                text-align: center;
+    font-weight: 900;
+    marging: 0;
+    padding: 0;
+
+        }
+        .main-text-content p {
+            padding: 0;
+            marging: 0;
+            
+
+        }
+
+        .main-text-content p:last-child {
+            padding: 0;
+            marging: 0;
+            
+
+        }
+
+                .main-header-text-content .button-neo {
+    background-color: #40d39c; /* Світло-жовтий фон */
+    color: black; /* Чорний текст */
+    border: 2px solid black; /* Чорна межа */
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: transform 0.3s; /* Анімація масштабування */
+    box-shadow: 3px 3px black; /* Додавання тіні */
+}
+
+.photonic-content {
+                width: 400px;
+            height: 400px;
+}
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            height: 300px;
+            padding: 20px;
+            background-color: #ffc5c8; /* Світлий фон для футера */
+            border-top: 1px solid #dcdcdc; /* Розділова лінія на верху футера */
+                        padding-left: 100px;
+            padding-right: 100px;
+        }
+
+.footer-logo {
+    height: 120px;
+}
+
+.footer-text {
+
+}
+
+
+.footer-contact {
+}
+
+        .footer-contacts a {
+            color: #007bff; /* Синій колір для посилань */
+            text-decoration: none; /* Видалення підкреслення */
+        }
+
+        .footer-contacts a:hover {
+            color: #0056b3; /* Темніший синій колір при наведенні */
+            text-decoration: underline; /* Підкреслення при наведенні */
+        }
+
+        .footer-contacts a:active {
+            color: #004080; /* Ще темніший колір при натисканні */
+        }
+
+        .footer-contacts a:focus {
+            outline: none; /* Видалення контуру при фокусуванні */
+            box-shadow: 0 0 3px #007bff; /* Додавання синьої тіні навколо посилання при фокусуванні */
+        }
+        .chapter-section {
+
+
+
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 400;
+            
+            align-items: center;
+            background-color: #f0f0f0;
+            background-image: url('../images/school-pattern.png');
+            background-repeat: repeat;
+            background-size: 1000px 1000px;
+        }
+        .chapter-container {
+
+            max-width: 50%;
+            margin: 0px auto;
+            
+            padding: 20px;
+
+
+        }
+
+        .chapter-container h2 {
+            text-align: center;
+
+        }
+        .chapter-text h3 {
+            color: #d62828;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            font-size: 24px;
+
+        }
+        .chapter-text {
+            font-size: 18px;
+            margin: 20px;
+            padding: 40px;
+            background-color: #b9e2f8;
+                box-shadow: 20px 20px black; /* Додавання тіні */
+
+        }
+        .chapter-text-box {
+            background-color: #f77f00;
+            color: #fff;
+            padding: 15px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 5px solid black;
+            font-family: 'IBM Plex Mono', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+        }
+        .chapter-content {
+            display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрування вмісту по вертикалі */
+    align-items: center;
+
+        }
+        .chapter-reference {
+            font-size: 14px;
+            font-style: italic;
+        }
+
+                .chapter-formula {
+            padding: 0;
+            margin: 0;
+            font-family: 'IBM Plex Mono', sans-serif;
+            font-weight: 400;
+            text-align: center;
+            align-items: center;
+
+        }
+
+                        .chapter-formula p {
+            background-color: #f77f00;
+            color: #fff;
+            padding: 5px;
+            margin: 10px;
+            border: 5px solid black;
+            font-family: 'IBM Plex Mono', sans-serif;
+            font-weight: 400;
+            text-align: center;
+            width: 300px;
+            display: inline-block;
+        }
+                }
+form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        }
+        .form-group {
+            margin-bottom: 20px;
+
+        }
+        form {
+                                   font-family: 'IBM Plex Mono', sans-serif;
+            font-weight: 700;
+
+        }
+                .form-group-input {
+                                   font-family: 'IBM Plex Mono', sans-serif;
+            font-weight: 400;
+             font-size: 14px;
+        }
+
+
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group input[type="email"],
+        .form-group input[type="date"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .divider {
+            border-top: 2px solid black;
+            margin: 20px 0;
+            color: black;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button.cancel {
+            background-color: #dc3545;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header id="header">
+    <div id="logo-container">
+        <img src="../images/logo.png" alt="Логотип" id="logo">
+
+    </div>
+    <nav>
+    <ul>
+        <li><a href="../index.html">Головна</a></li>
+        <li><a href="../chapters/control-work.html">Контроль знань</a></li>
+        <li><a href="#footer">Контакти</a></li>
+    </ul>
+</nav>
+</header>
+    <section class="chapter-section">
+    <div class="chapter-container">
+        <h2>Контроль знань</h2>
+        <div class="chapter-text">
+         <form   action="https://formspree.io/f/mrgngbvv"
+  method="POST">
+
+        <!-- Перемикачі (радіо кнопки) -->
+        <div class="form-group">
+            <label>Що таке фотонна заборонена зона?</label>
+            <div class="form-group-input">
+                <input type="radio" id="option4_1" name="question4" value="option1">
+                <label for="option4_1">Область частот ренгенівського випромінювання, розповсюдження якого в будь-якому напрямку в фотонному кристалі являється неможливим.</label>
+            </div>
+            <div class="form-group-input">
+                <input type="radio" id="option4_2" name="question4" value="option2">
+                <label for="option4_2">Область частот електромагнітного випромінювання, будь-якої поляризації, розповсюдження якого в будь-якому напрямку в фотонному кристалі являється неможливим.</label>
+            </div>
+                        <div class="form-group-input">
+                <input type="radio" id="option4_3" name="question4" value="option3">
+                <label for="option4_3">Область випромінювання, будь-якого видимого світла, розповсюдження якого в фотонному кристалі являється неможливим.</label>
+            </div>
+        </div>
+<div class="divider"></div>
+
+        <!-- Прапорці (чекбокси) -->
+        <div class="form-group">
+            <label>Оберіть правильні твердження, які стосуються основних вимог до визначання фотонних кристалів.</label>
+            <div class="form-group-input">
+                <input type="checkbox" id="checkbox5_1" name="question5_1">
+                <label for="checkbox5_1">Наявність періодичної модуляції діелектричної проникненості.</label>
+            </div>
+            <div class="form-group-input">
+                <input type="checkbox" id="checkbox5_2" name="question5_2">
+                <label for="checkbox5_2">Це повинна бути 2D або 3D періодична структура.</label>
+            </div>
+                        <div class="form-group-input">
+                <input type="checkbox" id="checkbox5_3" name="question5_3">
+                <label for="checkbox5_3">Наявність довгого індексу діелектричного контрасту.</label>
+            </div>
+                        <div class="form-group-input">
+                <input type="checkbox" id="checkbox5_4" name="question5_4">
+                <label for="checkbox5_4">Наявність повної або вв певному напрямку фотонної забороненої зони.</label>
+            </div>
+                        <div class="form-group-input">
+                <input type="checkbox" id="checkbox5_5" name="question5_5">
+                <label for="checkbox5_5">Маленькі розміри.</label>
+            </div>
+        </div>
+<div class="divider"></div>
+
+        <!-- Текстові поля -->
+        <div class="form-group" title="Підказка: область електромагнітного випромінювання.">
+            <label for="question1">Яка основна відмінність між звичайними кристалами та фотонними?</label>
+            <div class="form-group-input">
+            <input type="text" id="question1" name="question1">
+        </div>
+        </div>
+<div class="divider"></div>
+
+        <!-- Вибір зі списку -->
+        <div class="form-group">
+            <label for="question3">Який вчений вперше описав явище дифракції ренгенівських променів на кристалічній решітці?</label>
+            <select id="question3" name="question3">
+                <option value="">Оберіть варіант</option>
+                <option value="option1">Вільям Лоуренс Брегг</option>
+                <option value="option2">лорд Релей</option>
+                <option value="option3">Вільгельм Конрад Рентген</option>
+            </select>
+        </div>
+<div class="divider"></div>
+
+        <!-- Поле для введення числа -->
+        <div class="form-group" title="Ввеліть число">
+            <label for="question6">Який відсоток обʼєму займають глобули в фотонних кристалах?</label>
+            <input type="number" id="question6" name="question6">
+        </div>
+<div class="divider"></div>
+
+
+        <!-- Поле для введення електронної пошти -->
+        <div class="form-group">
+            <label for="email">Електронна пошта:</label>
+            <input type="email" id="email" name="email">
+        </div>
+<div class="divider"></div>
+
+        <div class="form-group">
+            <label for="question7">Прізвище та ім'я</label>
+            <input type="text" id="question7" name="question7">
+        </div>
+<div class="divider"></div>
+
+        <!-- Вибір дати -->
+        <div class="form-group">
+            <label for="date">Дата заповнення</label>
+            <input type="date" id="date" name="date">
+        </div>
+<div class="divider"></div>
+
+                <!-- Додати чекбокс згоди -->
+                <div class="form-group">
+                    <input type="checkbox" id="consent" name="consent" required>
+                    <label for="consent">Даю згоду на обробку персональних даних</label>
+                </div>
+
+        <!-- Кнопки відправлення та скасування -->
+        <div class="form-group">
+            <button type="submit" class="submit">Відправити</button>
+            <button type="reset" class="cancel">Скасувати</button>
+        </div>
+
+    </form>
+    </div>
+    </div>
+    <footer class="footer" id="footer">
+        <div class="footer-logo">
+            <img src="../images/logo.png" alt="Логотип" />
+        </div>
+
+        <div class="footer-text">
+            <p>Виконав студент групи ФІм-23 Огієнко Олег.<br>В рамках екзаменаційного проекту з Веб програмування.<br>В якості ідеї сайту обрана майбутня тема дипломної роботи.</p>
+        </div>
+
+<div class="footer-contacts">
+    <p>Електронна пошта: <a href="mailto:kombi21251@gmail.com">kombi21251@gmail.com</a></p>
+    <p>Телефон: <a href="tel:+380123456789">+380 123 456 789</a></p>
+</div>
+
+    </footer>
+<script>
+    document.getElementById('knowledge-check-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Запобігаємо стандартній обробці відправлення форми
+        alert('Ваші відповіді успішно відправлені');
+    });
+</script>
+</body>
+</html>
